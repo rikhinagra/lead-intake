@@ -15,8 +15,10 @@ declare global {
   }
 }
 
-// Site key from the Cloudflare Turnstile dashboard for lead-intake-dun.vercel.app.
-const TURNSTILE_SITE_KEY = "0x4AAAAAAEr6dT-Xc4LnF7cG";
+// Set in Vercel's project environment variables. Falls back to Cloudflare's
+// official "always passes" test key so local dev works without any setup.
+const TURNSTILE_SITE_KEY =
+  process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
 
 interface TurnstileProps {
   onVerify: (token: string) => void;
