@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION } from "@/lib/site-config";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -8,11 +9,19 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "New Lead — Lead Intake",
-  description: "Capture essential case details.",
+  metadataBase: new URL(SITE_URL),
+  title: `${SITE_TITLE} — ${SITE_NAME}`,
+  description: SITE_DESCRIPTION,
   robots: {
     index: false,
     follow: false,
+  },
+  openGraph: {
+    title: `${SITE_TITLE} — ${SITE_NAME}`,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    type: "website",
   },
 };
 
