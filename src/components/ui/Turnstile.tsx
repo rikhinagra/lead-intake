@@ -15,9 +15,8 @@ declare global {
   }
 }
 
-// Cloudflare's official "always passes" test key. Swap for the real site
-// key from the Cloudflare dashboard once Turnstile is set up for this domain.
-const TURNSTILE_SITE_KEY = "1x00000000000000000000AA";
+// Site key from the Cloudflare Turnstile dashboard for lead-intake-dun.vercel.app.
+const TURNSTILE_SITE_KEY = "0x4AAAAAAEr6dT-Xc4LnF7cG";
 
 interface TurnstileProps {
   onVerify: (token: string) => void;
