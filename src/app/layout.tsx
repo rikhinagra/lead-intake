@@ -10,14 +10,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: `${SITE_TITLE} — ${SITE_NAME}`,
+  title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   robots: {
     index: false,
     follow: false,
   },
   openGraph: {
-    title: `${SITE_TITLE} — ${SITE_NAME}`,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     siteName: SITE_NAME,
