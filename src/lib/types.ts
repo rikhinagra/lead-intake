@@ -61,9 +61,9 @@ export const US_STATES = [
 ] as const;
 
 export const COUNTRY_CODES = [
-  { code: "US", dial: "+1", flag: "🇺🇸" },
-  { code: "CA", dial: "+1", flag: "🇨🇦" },
-  { code: "MX", dial: "+52", flag: "🇲🇽" },
+  { code: "US", dial: "+1" },
+  { code: "CA", dial: "+1" },
+  { code: "MX", dial: "+52" },
 ] as const;
 
 export const initialFormData: LeadFormData = {

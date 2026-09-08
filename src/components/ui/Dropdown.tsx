@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, LucideIcon } from "lucide-react";
 
 interface DropdownOption {
   value: string;
@@ -13,6 +13,7 @@ interface DropdownProps {
   onChange: (value: string) => void;
   options: DropdownOption[];
   placeholder?: string;
+  icon?: LucideIcon;
 }
 
 interface PanelPosition {
@@ -22,7 +23,7 @@ interface PanelPosition {
   bottom?: number;
 }
 
-export default function Dropdown({ value, onChange, options, placeholder }: DropdownProps) {
+export default function Dropdown({ value, onChange, options, placeholder, icon: Icon }: DropdownProps) {
   const [open, setOpen] = useState(false);
   const [position, setPosition] = useState<PanelPosition | null>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -89,8 +90,11 @@ export default function Dropdown({ value, onChange, options, placeholder }: Drop
         aria-expanded={open}
         className="flex w-full items-center justify-between rounded-lg border border-border bg-white px-3 py-2.5 text-left text-[14px] text-ink"
       >
-        <span className={selected ? "" : "text-ink-muted"}>
-          {selected?.label ?? placeholder ?? ""}
+        <span className="flex min-w-0 items-center gap-1.5">
+          {Icon && <Icon className="h-3.5 w-3.5 flex-shrink-0 text-ink-muted" />}
+          <span className={`truncate ${selected ? "" : "text-ink-muted"}`}>
+            {selected?.label ?? placeholder ?? ""}
+          </span>
         </span>
         <ChevronDown className="h-3.5 w-3.5 flex-shrink-0 text-ink-muted" />
       </button>
